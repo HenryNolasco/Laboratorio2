@@ -21,8 +21,6 @@ fun bienvenida(pendientes: Queue<Orden>, despachadas: Stack<Orden>) {
 
     val seleccion = readLine()
 
-    // falta revisar numero este entre 1-5
-
     if (seleccion == "1") {
         registrar(pendientes, despachadas)
     } else if (seleccion == "2") {
@@ -43,7 +41,6 @@ fun registrar(pendientes: Queue<Orden>, despachadas: Stack<Orden>) {
 
     print("Ingrese el nombre del cliente: ")
     orden.nombre = readLine()!!
-    // falta revisar texto
 
     print("Cuantos tipos de pupusas desea ordenar? : ")
     var tipos = readLine()!!.toInt()
@@ -52,10 +49,8 @@ fun registrar(pendientes: Queue<Orden>, despachadas: Stack<Orden>) {
         print("\nIngrese el tipo de pupusa #${i}: ")
         var tipo = readLine()!!
 
-
-
         print("Ingrese la cantidad de pupusas ${tipo}: ")
-        var cantidad = readLine()!!.toInt() // convertir a Int
+        var cantidad = readLine()!!.toInt()
 
         if (cantidad == 1) {
             orden.añadir("${cantidad} pupusa de ${tipo}")
@@ -65,7 +60,7 @@ fun registrar(pendientes: Queue<Orden>, despachadas: Stack<Orden>) {
     }
 
     pendientes.enqueue(orden);
-    println("\nOrden registrada para ${orden.toString()} \n") // arreglar el formato
+    println("\nOrden registrada para ${orden.toString()} \n")
 
     bienvenida(pendientes, despachadas)
 }
